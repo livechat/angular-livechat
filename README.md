@@ -7,7 +7,7 @@ Angular directive to integrate LiveChat with your single-page app.
 #### Usage
 Import `LivechatWidgetModule` in Angular modules.
 
-```
+```js
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { LivechatWidgetModule } '@livechat/angular-widget'
@@ -21,7 +21,7 @@ export class AppModule {}
 ```
 
 Use `LivechatWidgetDirective` in your templates:
-```
+```js
 <livechat-widget [licenseId]="YOUR LICENSE ID"></livechat-widget>
 ```
 
