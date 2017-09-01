@@ -1,5 +1,5 @@
 ### Livechat Widget for Angular
-Angular component to integrate LiveChat with your single-page app.
+Angular directive to integrate LiveChat with your single-page app.
 
 #### Installation
 `npm install --save @livechat/angular-widget`
