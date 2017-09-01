@@ -1,6 +1,6 @@
 {
     "name": "@livechat/angular-widget",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Angular component to integrate LiveChat with your single-page app",
     "main": "bundles/livechatWidget.umd.js",
     "module": "index.js",
