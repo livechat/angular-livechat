@@ -26,4 +26,6 @@ Use `LivechatWidgetDirective` in your templates:
 ```
 
 #### Demo
-Check out [live example](http://plnkr.co/edit/bvMZNePnRJPIFPeKd1Ep?p=preview).
+Check out plunker [live example](http://plnkr.co/edit/bvMZNePnRJPIFPeKd1Ep?p=preview).
+
+or the stackblitz [live example](https://stackblitz.com/edit/livechat?embed=1&file=main.ts).
