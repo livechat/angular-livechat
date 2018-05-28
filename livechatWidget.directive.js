@@ -21,10 +21,17 @@ var LivechatWidgetDirective = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(LivechatWidgetDirective.prototype, "_environment", {
+        get: function () {
+            return this.environment ? this.environment + "/" : '';
+        },
+        enumerable: true,
+        configurable: true
+    });
     LivechatWidgetDirective.prototype._injectScript = function () {
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.innerHTML = "\n        window.__lc = window.__lc || {};\n        window.__lc.license = " + this.licenseId + ";\n        " + this._group + "\n        " + this._gaVersion + "\n        (function() {\n          var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;\n          lc.src = 'https://cdn.livechatinc.com/tracking.js';\n          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);\n        })();\n      ";
+        script.innerHTML = "\n        window.__lc = window.__lc || {};\n        window.__lc.license = " + this.licenseId + ";\n        " + this._group + "\n        " + this._gaVersion + "\n        (function() {\n          var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;\n          lc.src = 'https://cdn.livechatinc.com/" + this._environment + "tracking.js';\n          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);\n        })();\n      ";
         document
             .getElementsByTagName('head')
             .item(0)
@@ -41,6 +48,7 @@ var LivechatWidgetDirective = (function () {
         'licenseId': [{ type: Input },],
         'group': [{ type: Input },],
         'gaVersion': [{ type: Input },],
+        'environment': [{ type: Input },],
     };
     return LivechatWidgetDirective;
 }());
