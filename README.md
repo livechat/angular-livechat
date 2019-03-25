@@ -28,9 +28,7 @@ Use `LivechatWidgetDirective` in your templates:
 ```js
 <livechat-widget [licenseId]="YOUR LICENSE ID"></livechat-widget>
 ```
-Note that you can find your license id in the <script> from the custom design section of liveagent, on the integratiosn tab. You can see it after s.id:
-```ja
-  createElement('script');s.id=
+Note that you can find your license id in 
 ```
   
 As optional parameters, you can define:
