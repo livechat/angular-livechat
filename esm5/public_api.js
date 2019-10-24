@@ -1,0 +1,11 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ */
+/*
+ * Public API Surface of livechat-widget
+ */
+export { LivechatWidgetComponent } from './lib/livechat-widget.component';
+export { LivechatWidgetModule } from './lib/livechat-widget.module';
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BsaXZlY2hhdC9hbmd1bGFyLXdpZGdldC8iLCJzb3VyY2VzIjpbInB1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUlBLHdDQUFjLGlDQUFpQyxDQUFDO0FBQ2hELHFDQUFjLDhCQUE4QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBsaXZlY2hhdC13aWRnZXRcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9saXZlY2hhdC13aWRnZXQuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2xpdmVjaGF0LXdpZGdldC5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbGl2ZWNoYXQtd2lkZ2V0Lm1vZGVscyc7XG4iXX0=

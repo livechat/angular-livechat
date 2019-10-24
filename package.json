@@ -1,14 +1,14 @@
 {
   "name": "@livechat/angular-widget",
-  "version": "0.0.6",
-  "description":
-    "Angular component to integrate LiveChat with your single-page app",
-  "main": "bundles/livechatWidget.umd.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
-  "keywords": ["angular", "angular2", "angular 2"],
-  "author": "Wojciech Medyński<w.medynski@livechatinc.com>",
+  "version": "0.1.0",
+  "author": "Maciej Kurasadowicz<m.kurasadowicz@gmail.com>",
+  "description": "Angular component to integrate LiveChat with your single-page app",
   "license": "MIT",
+  "keywords": [
+    "angular",
+    "livechat",
+    "livechat widget"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/livechat/angular-livechat.git"
@@ -18,7 +18,20 @@
     "url": "https://github.com/livechat/angular-livechat/issues"
   },
   "peerDependencies": {
-    "@angular/core": "^2.4.0|| ^4.0.0 || ^5.0.0 || ^6.0.0",
+    "@angular/core": "^2.4.0 || ^4.0.0 || ^5.0.0 || ^6.0.0",
     "rxjs": "^5.0.1"
+  },
+  "main": "bundles/livechat-angular-widget.umd.js",
+  "module": "fesm5/livechat-angular-widget.js",
+  "es2015": "fesm2015/livechat-angular-widget.js",
+  "esm5": "esm5/livechat-angular-widget.js",
+  "esm2015": "esm2015/livechat-angular-widget.js",
+  "fesm5": "fesm5/livechat-angular-widget.js",
+  "fesm2015": "fesm2015/livechat-angular-widget.js",
+  "typings": "livechat-angular-widget.d.ts",
+  "metadata": "livechat-angular-widget.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
   }
 }

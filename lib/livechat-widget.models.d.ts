@@ -1,0 +1,97 @@
+import { Subject } from "rxjs";
+export interface LiveChatWidgetModel {
+    licenseId: number;
+    group: number;
+    chatBetweenGroups: boolean;
+    gaVersion: string;
+    params: {
+        name: string;
+        value: any;
+    }[];
+    visitor: {
+        name: string;
+        email: string;
+    };
+    onChatLoaded: Subject<LiveChatWidgetApiModel>;
+    onBeforeLoad: Subject<{}>;
+    onAfterLoad: Subject<{}>;
+    onChatWindowOpened: Subject<{}>;
+    onChatWindowMinimized: Subject<{}>;
+    onChatWindowHidden: Subject<{}>;
+    onChatStateChanged: Subject<{}>;
+    onChatStarted: Subject<{}>;
+    onChatEnded: Subject<{}>;
+    onMessage: Subject<{}>;
+    onTicketCreated: Subject<{}>;
+    onPrechatSurveySubmitted: Subject<{}>;
+    onPostchatSurveySubmitted: Subject<{}>;
+    onRatingSubmitted: Subject<{}>;
+    onRatingCommentSubmitted: Subject<{}>;
+    agentsAreAvailable(): void;
+    chatRunning(): void;
+    chatWindowHidden(): void;
+    chatWindowMaximized(): void;
+    chatWindowMinimized(): void;
+    closeChat(): void;
+    getChatId(): void;
+    getChatsNumber(): void;
+    getLastVisitTimestamp(): void;
+    getPageViewsNumber(): void;
+    getVisitorId(): void;
+    getVisitsNumber(): void;
+    hideChatWindow(): void;
+    minimizeChatWindow(): void;
+    openChatWindow(): void;
+    setCustomVariables(array: {
+        name: string;
+        value: string;
+    }[]): void;
+    setVisitorEmail(email: string): void;
+    setVisitorName(name: string): void;
+    triggerSalesTracker(e: any, t: any): void;
+    updateCustomVariables(array: {
+        name: string;
+        value: string;
+    }[]): void;
+    visitorEngaged(): void;
+    visitorQueued(): void;
+}
+export interface LiveChatWidgetApiModel {
+    agents_are_available(): void;
+    chat_running(): void;
+    chat_window_hidden(): void;
+    chat_window_maximized(): void;
+    chat_window_minimized(): void;
+    close_chat(): void;
+    get_chat_id(): void;
+    get_chats_number(): void;
+    get_last_visit_timestamp(): void;
+    get_page_views_number(): void;
+    get_visitor_id(): void;
+    get_visits_number(): void;
+    hide_chat_window(): void;
+    minimize_chat_window(): void;
+    on_after_load(): void;
+    on_before_load(): void;
+    on_chat_ended(): void;
+    on_chat_started(data: any): void;
+    on_chat_state_changed(data: any): void;
+    on_chat_window_hidden(): void;
+    on_chat_window_minimized(): void;
+    on_chat_window_opened(): void;
+    on_message(data: any): void;
+    on_postchat_survey_submitted(data: any): void;
+    on_prechat_survey_submitted(data: any): void;
+    on_rating_comment_submitted(data: any): void;
+    on_rating_submitted(data: any): void;
+    on_ticket_created(data: any): void;
+    on_widget_resize(): void;
+    open_chat_window(): void;
+    set_custom_variables(t: any): void;
+    set_visitor_email(t: any): void;
+    set_visitor_name(t: any): void;
+    trigger_sales_tracker(e: any, t: any): void;
+    update_custom_variables(t: any): void;
+    visitor_engaged(): void;
+    visitor_queued(): void;
+}

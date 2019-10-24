@@ -1,6 +1,10 @@
 ### Livechat Widget for Angular
 
-Angular directive to integrate LiveChat with your single-page app.
+Library to integrate LiveChat Widget with your Angular App.
+
+#### Demo
+
+StackBlitz [live example](https://stackblitz.com/edit/livechat-angular-widget).
 
 #### Installation
 
@@ -8,68 +12,100 @@ Angular directive to integrate LiveChat with your single-page app.
 
 #### Usage
 
-Import `LivechatWidgetModule` in Angular modules.
+##### Import `LivechatWidgetModule` in Angular AppModule.
 
-```js
-import { NgModule } from '@angular/core';
+
+```javascript
 import { BrowserModule } from '@angular/platform-browser';
-import { LivechatWidgetModule } from '@livechat/angular-widget';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { LivechatWidgetModule } from '@livechat/angular-widget'
 
 @NgModule({
-  imports: [BrowserModule, LivechatWidgetModule],
-  declarations: [App],
-  bootstrap: [App]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+	BrowserModule,
+	LivechatWidgetModule,
+  ],
+  providers: [],
+  bootstrap: [
+	  AppComponent,
+	]
 })
-export class AppModule {}
+export class AppModule { }
 ```
 
-Use `LivechatWidgetDirective` in your templates:
+##### Use the LiveChat Angular Widget in your template:
 
-```js
-<livechat-widget licenseId="YOUR LICENSE ID" />
+```html
+<livechat-widget licenseId="10073628"></livechat-widget>
 ```
 
 As optional parameters, you can define:
+* `group`
+* `chatBetweenGroups`
+* `params`
+* `visitor`
+* `gaVersion`
 
-`group` for e.g. `group="1"`
+To get more details about usage of the optional paramteres please read our [tracking code documentation](https://developers.livechatinc.com/docs/extending-ui/extending-chat-widget/javascript-api/#tracking-code).
 
-```
-/**
- * Chat window group (defaults to "0").
- * You can divide LiveChat agents into different departments,
- * such as "Billing" or "Support".
- * For example, if this parameter will point to group "Billing",
- * all visitors entering the chat will talk with agents
- * from this group and not the "Support" group.
- *
- * Create your group in LiveChat app:
- * https://my.livechatinc.com/agents/groups
- */
+##### Access to the LiveChat Widget API using callback method
+
+
+```html
+<livechat-widget licenseId="10073628" (onChatLoaded)="onChatLoaded($event)"></livechat-widget>
 ```
 
-`gaVersion` for e.g. `gaVersion="gtm"`
+```javascript
+import { Component } from '@angular/core';
+import { LiveChatWidgetApiModel } from '@livechat/angular-widget';
 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  liveChatApi: LiveChatWidgetApiModel
+
+  constructor() { }
+
+  onChatLoaded(api: LiveChatWidgetApiModel) {
+    this.liveChatApi = api;
+  }
+}
 ```
-/**
- * By default, our tracking code stores LiveChat related data
- * in the Google Analytics gaq - traditional asynchronous
- * code for Google Analytics.
- *
- * If you are using a different type of Google Analytics,
- * you can decide which one LiveChat should track.
- *
- * The available options are:
- * ga – Universal Analytics;
- * gtm – Google Tag Manager;
- * gtag – Global Site Tag (gtag.js);
- * gaq – traditional asynchronous code for Google Analytics.
- */
+
+##### Access to the LiveChat Widget API using @ViewChild decorator
+
+```html
+<livechat-widget #liveChatWidget licenseId="10073628" ></livechat-widget>
 ```
 
-Let us know if you are looking for more options from our [tracking code](https://docs.livechatinc.com/js-api/#tracking-code) .
+```javascript
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { LiveChatWidgetModel } from '@livechat/angular-widget';
+import { Subscription } from 'rxjs';
 
-#### Demo
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+})
+export class AppComponent implements OnInit, OnDestroy {
+  @ViewChild('liveChatWidget') liveChatWidget: LiveChatWidgetModel;
+  liveChatWidget$: Subscription = new Subscription();
+  liveChatApi: LiveChatWidgetApiModel;
 
-Check out plunker [live example](http://plnkr.co/edit/bvMZNePnRJPIFPeKd1Ep?p=preview).
+  constructor() { }
 
-or the stackblitz [live example](https://stackblitz.com/edit/livechat?embed=1&file=main.ts).
+  ngOnInit(): void {
+    this.liveChatWidget$ = this.liveChatWidget.onChatLoaded.subscribe((api: LiveChatWidgetApiModel) => this.liveChatApi = api)
+  }
+
+  ngOnDestroy(): void {
+	  this.liveChatWidget$.unsubscribe();
+  }
+}
+```
