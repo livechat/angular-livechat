@@ -18,8 +18,8 @@
     "url": "https://github.com/livechat/angular-livechat/issues"
   },
   "peerDependencies": {
-    "@angular/core": "^2.4.0 || ^4.0.0 || ^5.0.0 || ^6.0.0",
-    "rxjs": "^5.0.1"
+    "@angular/core": ">=2.4.0",
+    "rxjs": ">=5.0.1"
   },
   "sideEffects": false,
   "dependencies": {
