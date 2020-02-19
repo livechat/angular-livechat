@@ -1,7 +1,7 @@
 {
   "name": "@livechat/angular-widget",
   "version": "0.1.0",
-  "author": "Maciej Kurasadowicz<m.kurasadowicz@gmail.com>",
+  "author": "LiveChat, Inc",
   "description": "Angular component to integrate LiveChat with your single-page app",
   "license": "MIT",
   "keywords": [
@@ -21,17 +21,25 @@
     "@angular/core": "^2.4.0 || ^4.0.0 || ^5.0.0 || ^6.0.0",
     "rxjs": "^5.0.1"
   },
-  "main": "bundles/livechat-angular-widget.umd.js",
-  "module": "fesm5/livechat-angular-widget.js",
-  "es2015": "fesm2015/livechat-angular-widget.js",
-  "esm5": "esm5/livechat-angular-widget.js",
-  "esm2015": "esm2015/livechat-angular-widget.js",
-  "fesm5": "fesm5/livechat-angular-widget.js",
-  "fesm2015": "fesm2015/livechat-angular-widget.js",
-  "typings": "livechat-angular-widget.d.ts",
-  "metadata": "livechat-angular-widget.metadata.json",
   "sideEffects": false,
   "dependencies": {
     "tslib": "^1.9.0"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^9.0.1",
+    "@angular/compiler-cli": "^9.0.1",
+    "@angular/core": "^9.0.1",
+    "ng-packagr": "^9.0.1",
+    "rxjs": "^6.5.4",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "build": "ng-packagr",
+    "prepare": "yarn build"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "public_api.ts"
+    }
   }
 }
