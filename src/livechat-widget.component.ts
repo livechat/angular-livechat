@@ -53,6 +53,7 @@ export class LivechatWidgetComponent implements OnInit {
   public updateCustomVariables: Function;
   public visitorEngaged: Function;
   public visitorQueued: Function;
+  private lc: HTMLScriptElement;
 
   constructor() { }
 
@@ -65,18 +66,30 @@ export class LivechatWidgetComponent implements OnInit {
       window['__lc'].params = this.params;
       window['__lc'].visitor = this.visitor;
       window['__lc'].ga_version = this.gaVersion;
-      const lc = document.createElement('script');
-      lc.type = 'text/javascript';
-      lc.async = true;
-      lc.src = 'https://cdn.livechatinc.com/tracking.js';
+      const api = { _q: [], _h: null, call: (...args) =>  api._h && api._h.apply(null, ['call', [].slice.call(args)])  };
+      window['LiveChatWidget'] = api;
+      this.lc = document.createElement('script');
+      this.lc.type = 'text/javascript';
+      this.lc.async = true;
+      this.lc.src = 'https://cdn.livechatinc.com/tracking.js';
       const s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(lc, s);
-      lc.addEventListener('load', () => {
+      s.parentNode.insertBefore(this.lc, s);
+      this.lc.addEventListener('load', () => {
         this._chatLoaded(window['LC_API']);
       });
-      lc.addEventListener('error', (error) => {
+      this.lc.addEventListener('error', (error) => {
         console.error(error);
       });
+    }
+  }
+
+  ngOnDestroy(){
+    if(window['LiveChatWidget'] && typeof window['LiveChatWidget'].call === 'function') {
+      window['LiveChatWidget'].call('destroy');
+      this.lc && this.lc.remove();
+      ['secure.livechat.com', 'secure.livechatinc.com'].forEach(domain => {
+        Array.from(document.querySelectorAll(`[src*="${domain}"]`)).forEach(s => s.remove())
+      })
     }
   }
 
