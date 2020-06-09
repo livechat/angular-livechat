@@ -1,8 +1,8 @@
-
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "rootDir": "./src",
-        "experimentalDecorators": true
-    }
+  "compilerOptions": {
+    "module": "commonjs",
+    "rootDir": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
 }
