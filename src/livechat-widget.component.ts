@@ -11,7 +11,7 @@ export class LivechatWidgetComponent implements OnInit {
   @Input() licenseId: number;
   @Input() group: number;
   @Input() chatBetweenGroups: boolean;
-  @Input() params: { name: string, value: any };
+  @Input() params: Array<{ name: string, value: any }>;
   @Input() visitor: { name: string, email: string, };
   @Input() gaVersion: string;
   @Output() public onChatLoaded = new Subject<LiveChatWidgetApiModel>();
