@@ -29,7 +29,7 @@
     "@angular/compiler": "^9.0.1",
     "@angular/compiler-cli": "^9.0.1",
     "@angular/core": "^9.0.1",
-    "ng-packagr": "^9.0.1",
+    "ng-packagr": "^10.1.1",
     "rxjs": "^6.5.4",
     "typescript": "^3.7.5"
   },
