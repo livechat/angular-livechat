@@ -1,3 +1,9 @@
+### ⚠️ DEPRECATED ⚠️
+
+We have created a new project called [Chat Widget Adapters](https://github.com/livechat/chat-widget-adapters). It contains a set of packages which support more frontend frameworks integration with LiveChat Chat Widget in a modern way aligned with each framework specificity in mind.
+
+From now on it will be the official, actively maintained repository for each framework-specific package that allows easy integration of LiveChat Chat Widget. The Angular package [@livechat/widget-angular](http://npm.im/@livechat/widget-angular) is one of available optoions. You can read more about it [here](https://github.com/livechat/chat-widget-adapters/blob/master/packages/widget-angular/README.md).
+
 ### Livechat Widget for Angular
 
 Library to integrate LiveChat Widget with your Angular App.
